@@ -12,6 +12,8 @@ class _UserView extends State<UserView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.white,
         title: const CHText(text: "유저 관리", textType: CHTextType.title),
       ),
     );

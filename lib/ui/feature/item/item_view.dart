@@ -14,6 +14,8 @@ class _ItemView extends State<ItemView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.white,
         title: const CHText(text: "아이템 관리", textType: CHTextType.title),
       ),
       body: Container(

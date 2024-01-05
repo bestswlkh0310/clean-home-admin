@@ -21,6 +21,8 @@ class _AddItemView extends State<AddItemView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.white,
         title: const CHText(text: "아이템 추가", textType: CHTextType.title),
       ),
       body: Container(
