@@ -8,11 +8,13 @@ class HomeButton extends StatefulWidget {
   const HomeButton({
     super.key,
     required this.text,
-    required this.callback
+    required this.icon,
+    required this.callback,
   });
 
   final String text;
   final VoidCallback callback;
+  final String icon;
 
   @override
   State<StatefulWidget> createState() => _HomeButton();
@@ -31,7 +33,7 @@ class _HomeButton extends State<HomeButton> {
           padding: const EdgeInsets.all(8),
           child: Container(
             alignment: Alignment.bottomCenter,
-            height: 200,
+            height: 180,
             decoration: BoxDecoration(
               border: Border.all(width: 1.5, color: CHColor.gray50),
               borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -42,7 +44,7 @@ class _HomeButton extends State<HomeButton> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgPicture.asset(
-                    'assets/icons/home.svg',
+                    widget.icon,
                     width: 100,
                     height: 100,
                   ),

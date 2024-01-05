@@ -40,10 +40,10 @@ class _HomeView extends State<HomeView> {
         child: Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            HomeButton(text: "유저 관리", callback: () {
+            HomeButton(text: "유저 관리", icon: 'assets/icons/home.svg', callback: () {
               Navigator.pushNamed(context, '/user');
             }),
-            HomeButton(text: "아이템 관리", callback: () {
+            HomeButton(text: "아이템 관리", icon: 'assets/icons/item.svg', callback: () {
               Navigator.pushNamed(context, '/item');
             })
           ],
