@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../component/text/ch_text.dart';
 import '../../component/text/ch_text_type.dart';
+import '../../component/theme/color.dart';
 
 class ItemView extends StatefulWidget {
   @override
@@ -14,6 +15,24 @@ class _ItemView extends State<ItemView> {
     return Scaffold(
       appBar: AppBar(
         title: const CHText(text: "아이템 관리", textType: CHTextType.title),
+      ),
+      body: Container(
+        color: Colors.white,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+
+            ],
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          
+        },
+        child: Icon(Icons.add),
+        backgroundColor: CHColor.main500,
+        foregroundColor: Colors.white,
       ),
     );
   }
