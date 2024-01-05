@@ -4,6 +4,9 @@ import 'package:cleanhome/ui/component/theme/color.dart';
 import 'package:cleanhome/ui/component/button/ch_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../../model/item_model.dart';
+import '../../../service/api/item_api.dart';
+
 class AddItemView extends StatefulWidget {
 
   const AddItemView({super.key});
@@ -16,6 +19,9 @@ class _AddItemView extends State<AddItemView> {
 
   String name = "";
   int cost = 0;
+
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _costController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +46,10 @@ class _AddItemView extends State<AddItemView> {
                       child: CHText(text: "아이템 이름", textType: CHTextType.subtitle),
                     )
                   ),
-                  const TextField(
+                  TextField(
                     cursorColor: CHColor.main500,
-                    decoration: InputDecoration(
+                    controller: _nameController,
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8)),
                         borderSide: BorderSide(width: 2, color: CHColor.main500)
@@ -65,9 +72,10 @@ class _AddItemView extends State<AddItemView> {
                       child: CHText(text: "가격", textType: CHTextType.subtitle),
                     )
                   ),
-                  const TextField(
+                  TextField(
                     cursorColor: CHColor.main500,
-                    decoration: InputDecoration(
+                    controller: _costController,
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8)),
                           borderSide: BorderSide(width: 2, color: CHColor.main500)
@@ -87,7 +95,15 @@ class _AddItemView extends State<AddItemView> {
                     padding: const EdgeInsets.all(16),
                     child: CHButton(
                         onPressed: () {
-
+                          var costText =_costController.text;
+                          if (int.tryParse(costText) != null) {
+                            ItemApi.addItem(_nameController.text, int.parse(_costController.text))
+                            .then((v) {
+                              Navigator.pop(context);
+                            });
+                          } else {
+                            // TODO : warn toast
+                          }
                         }, text: "추가 완료"
                     ),
                   )
