@@ -1,5 +1,7 @@
 import 'dart:core';
 
+import 'package:flutter/material.dart';
+
 class ItemModel {
   final int id;
   final String itemName;
@@ -18,7 +20,11 @@ class ItemModel {
         id: json['id'],
         itemName: json['itemName'],
         cost: json['cost'],
-        createdAt: json['createdAd']
+        createdAt: json['createdAt']
     );
+  }
+
+  static List<ItemModel> fromJsonList(List<dynamic> json) {
+    return json.map((itemJson) => ItemModel.fromJson(itemJson)).toList();;
   }
 }
