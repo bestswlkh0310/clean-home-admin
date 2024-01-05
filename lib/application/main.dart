@@ -1,3 +1,4 @@
+import 'package:cleanhome/ui/feature/add_item/add_item_view.dart';
 import 'package:cleanhome/ui/feature/home/home_view.dart';
 import 'package:cleanhome/ui/feature/item/item_view.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/user': (context) => UserView(),
-        '/item': (context) => ItemView()
+        '/item': (context) => ItemView(),
+        '/item/add': (context) => AddItemView()
       },
       home: const HomeView(title: '집 치우기', subTitle: 'for admin'),
     );

@@ -28,7 +28,7 @@ class _ItemView extends State<ItemView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          
+          Navigator.pushNamed(context, '/item/add');
         },
         child: Icon(Icons.add),
         backgroundColor: CHColor.main500,
