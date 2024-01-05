@@ -81,10 +81,13 @@ class _AddItemView extends State<AddItemView> {
                       hintText: "가격을 입력해주세요"
                     )
                   ),
-                  CHButton(
-                    onPressed: () {
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: CHButton(
+                        onPressed: () {
 
-                    }, text: "추가 완료"
+                        }, text: "추가 완료"
+                    ),
                   )
                 ],
               ),
