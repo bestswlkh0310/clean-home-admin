@@ -1,7 +1,7 @@
 import 'package:cleanhome/ui/component/text/ch_text.dart';
 import 'package:cleanhome/ui/component/text/ch_text_type.dart';
 import 'package:cleanhome/ui/component/theme/color.dart';
-import 'package:cleanhome/ui/feature/home/component/ch_button.dart';
+import 'package:cleanhome/ui/component/button/ch_button.dart';
 import 'package:flutter/material.dart';
 
 class AddItemView extends StatefulWidget {
