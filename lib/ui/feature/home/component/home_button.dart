@@ -2,6 +2,7 @@ import 'package:cleanhome/ui/component/text/ch_text.dart';
 import 'package:cleanhome/ui/component/text/ch_text_type.dart';
 import 'package:cleanhome/ui/component/theme/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeButton extends StatefulWidget {
   const HomeButton({
@@ -29,22 +30,32 @@ class _HomeButton extends State<HomeButton> {
         child: Padding(
           padding: const EdgeInsets.all(8),
           child: Container(
-              alignment: Alignment.bottomCenter,
-              height: 240,
-              decoration: BoxDecoration(
-                border: Border.all(width: 1.5, color: CHColor.gray50),
-                borderRadius: const BorderRadius.all(Radius.circular(8)),
-              ),
-              child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Row(
+            alignment: Alignment.bottomCenter,
+            height: 200,
+            decoration: BoxDecoration(
+              border: Border.all(width: 1.5, color: CHColor.gray50),
+              borderRadius: const BorderRadius.all(Radius.circular(8)),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SvgPicture.asset(
+                    'assets/icons/home.svg',
+                    width: 100,
+                    height: 100,
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CHText(text: widget.text, textType: CHTextType.subtitle),
                       const Icon(Icons.arrow_forward_ios_rounded, size: 20)
                     ],
                   )
+                ],
               )
+            )
           ),
         ),
       )
