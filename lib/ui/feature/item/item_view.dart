@@ -15,14 +15,22 @@ class ItemView extends StatefulWidget {
   State<StatefulWidget> createState() => _ItemView();
 }
 
-class _ItemView extends State<ItemView> {
+class _ItemView extends State<ItemView> with WidgetsBindingObserver {
 
   Future<List<ItemModel>>? itemList;
 
   @override
   void initState() {
+    WidgetsBinding.instance?.addObserver(this);
     super.initState();
     itemList = ItemApi.getItemAll();
+  }
+
+  Future<void> _refreshItems() async {
+    await Future.delayed(const Duration(seconds: 1));
+    setState(() {
+      itemList = ItemApi.getItemAll();
+    });
   }
 
   @override
@@ -36,29 +44,42 @@ class _ItemView extends State<ItemView> {
       body: Container(
         color: Colors.white,
         height: double.infinity,
-        child: SingleChildScrollView(
-          child: FutureBuilder<List<ItemModel>>(
-            future: itemList,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (context, index) {
-                    var itemModel = snapshot.data![index];
-                    return Text(itemModel.itemName);
-                });
-              } else if (snapshot.hasError) {
-                return Text("${snapshot.error}");
-              }
-              return const CircularProgressIndicator();
-            },
-          ),
-        ),
+        child: RefreshIndicator(
+          color: CHColor.main500,
+          onRefresh: _refreshItems,
+          child: SizedBox(
+            height: double.infinity,
+            child: FutureBuilder<List<ItemModel>>(
+              future: itemList,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        var itemModel = snapshot.data![index];
+                        return Container(
+                            height: 60,
+                            child: Text(itemModel.itemName)
+                        );
+                      });
+                } else if (snapshot.hasError) {
+                  return Text("${snapshot.error}");
+                }
+                return const CircularProgressIndicator();
+              },
+            )
+          )
+        )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/item/add');
+          Navigator.pushNamed(context, '/item/add')
+          .then((v) {
+            setState(() {
+              itemList = ItemApi.getItemAll();
+            });
+          });
         },
         backgroundColor: CHColor.main500,
         foregroundColor: Colors.white,
