@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../service/api/item_api.dart';
 import '../../component/text/ch_text.dart';
 import '../../component/text/ch_text_type.dart';
 import '../../component/theme/color.dart';
@@ -10,6 +11,17 @@ class ItemView extends StatefulWidget {
 }
 
 class _ItemView extends State<ItemView> {
+
+  @override
+  void initState() {
+    super.initState();
+  
+    ItemApi.getItemAll()
+    .then((response) {
+      print(response.body);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

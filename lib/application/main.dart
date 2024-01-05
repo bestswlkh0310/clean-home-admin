@@ -1,3 +1,4 @@
+import 'package:cleanhome/service/api_client.dart';
 import 'package:cleanhome/ui/feature/add_item/add_item_view.dart';
 import 'package:cleanhome/ui/feature/home/home_view.dart';
 import 'package:cleanhome/ui/feature/item/item_view.dart';
