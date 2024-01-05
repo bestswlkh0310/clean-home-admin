@@ -1,5 +1,4 @@
 import 'package:cleanhome/ui/component/theme/color.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeButton extends StatefulWidget {
@@ -23,7 +22,7 @@ class _HomeButton extends State<HomeButton> {
       flex: 1,
       child: GestureDetector(
         onTap: () {
-
+          widget.callback();
         },
         child: Padding(
           padding: EdgeInsets.all(8),

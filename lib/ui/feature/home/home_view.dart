@@ -39,10 +39,10 @@ class _HomeView extends State<HomeView> {
           mainAxisSize: MainAxisSize.max,
           children: [
             HomeButton(text: "유저 관리", callback: () {
-              Navigator.of(context).pushNamed('routeName');
+              Navigator.pushNamed(context, '/user');
             }),
             HomeButton(text: "아이템 관리", callback: () {
-
+              Navigator.pushNamed(context, '/item');
             })
           ],
         ),
