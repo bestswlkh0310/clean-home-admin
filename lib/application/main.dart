@@ -17,7 +17,10 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.white,
         useMaterial3: true,
       ),
-      home: const HomeView(title: '집 치우기', subTitle: 'for admin',),
+      // routes: {
+      //   // '/user': (context) =>
+      // },
+      home: const HomeView(title: '집 치우기', subTitle: 'for admin'),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:cleanhome/ui/feature/home/component/home_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -27,9 +28,22 @@ class _HomeView extends State<HomeView> {
           children: [
             Text(widget.title, style: const TextStyle(fontWeight: FontWeight.bold)),
             Padding(
-              padding: EdgeInsets.all(4),
+              padding: const EdgeInsets.all(4),
               child: Text(widget.subTitle, style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 16)),
             )
+          ],
+        ),
+      ),
+      body: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            HomeButton(text: "유저 관리", callback: () {
+              Navigator.of(context).pushNamed('routeName');
+            }),
+            HomeButton(text: "아이템 관리", callback: () {
+
+            })
           ],
         ),
       ),
