@@ -1,4 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../../component/text/ch_text.dart';
+import '../../component/text/ch_text_type.dart';
 
 class ItemView extends StatefulWidget {
   @override
@@ -8,6 +11,10 @@ class ItemView extends StatefulWidget {
 class _ItemView extends State<ItemView> {
   @override
   Widget build(BuildContext context) {
-    return Text("item view");
+    return Scaffold(
+      appBar: AppBar(
+        title: const CHText(text: "아이템 관리", textType: CHTextType.title),
+      ),
+    );
   }
 }
