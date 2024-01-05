@@ -1,6 +1,7 @@
 import 'package:cleanhome/ui/component/text/ch_text.dart';
 import 'package:cleanhome/ui/component/text/ch_text_type.dart';
 import 'package:cleanhome/ui/component/theme/color.dart';
+import 'package:cleanhome/ui/feature/home/component/ch_button.dart';
 import 'package:flutter/material.dart';
 
 class AddItemView extends StatefulWidget {
@@ -38,53 +39,52 @@ class _AddItemView extends State<AddItemView> {
                     )
                   ),
                   const TextField(
-                      cursorColor: CHColor.main500,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(width: 2, color: CHColor.main500)
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(width: 2, color: CHColor.main500)
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(width: 1.5, color: CHColor.main500)
-                          ),
-                          hintText: "아이템 이름을 입력해주세요"
-                      )
+                    cursorColor: CHColor.main500,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        borderSide: BorderSide(width: 2, color: CHColor.main500)
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        borderSide: BorderSide(width: 2, color: CHColor.main500)
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        borderSide: BorderSide(width: 1.5, color: CHColor.main500)
+                      ),
+                      hintText: "아이템 이름을 입력해주세요"
+                    )
                   ),
                   const Padding(
-                      padding: EdgeInsets.only(left: 4, bottom: 4, top: 16),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: CHText(text: "가격", textType: CHTextType.subtitle),
-                      )
+                    padding: EdgeInsets.only(left: 4, bottom: 4, top: 16),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: CHText(text: "가격", textType: CHTextType.subtitle),
+                    )
                   ),
                   const TextField(
-                      cursorColor: CHColor.main500,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(width: 2, color: CHColor.main500)
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(width: 2, color: CHColor.main500)
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(width: 1.5, color: CHColor.main500)
-                          ),
-                          hintText: "가격을 입력해주세요"
-                      )
+                    cursorColor: CHColor.main500,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(8)),
+                          borderSide: BorderSide(width: 2, color: CHColor.main500)
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(8)),
+                          borderSide: BorderSide(width: 2, color: CHColor.main500)
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(8)),
+                          borderSide: BorderSide(width: 1.5, color: CHColor.main500)
+                      ),
+                      hintText: "가격을 입력해주세요"
+                    )
                   ),
-                  FilledButton(
+                  CHButton(
                     onPressed: () {
 
-                    },
-                    child: const CHText(text: "추가하기")
+                    }, text: "추가 완료"
                   )
                 ],
               ),
