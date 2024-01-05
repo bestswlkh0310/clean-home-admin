@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:cleanhome/model/item_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../service/api/item_api.dart';
@@ -6,20 +9,20 @@ import '../../component/text/ch_text_type.dart';
 import '../../component/theme/color.dart';
 
 class ItemView extends StatefulWidget {
+  const ItemView({super.key});
+
   @override
   State<StatefulWidget> createState() => _ItemView();
 }
 
 class _ItemView extends State<ItemView> {
 
+  Future<List<ItemModel>>? itemList;
+
   @override
   void initState() {
     super.initState();
-  
-    ItemApi.getItemAll()
-    .then((response) {
-      print(response.body);
-    });
+    itemList = ItemApi.getItemAll();
   }
 
   @override
@@ -32,11 +35,24 @@ class _ItemView extends State<ItemView> {
       ),
       body: Container(
         color: Colors.white,
+        height: double.infinity,
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-
-            ],
+          child: FutureBuilder<List<ItemModel>>(
+            future: itemList,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (context, index) {
+                    var itemModel = snapshot.data![index];
+                    return Text(itemModel.itemName);
+                });
+              } else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
+              return const CircularProgressIndicator();
+            },
           ),
         ),
       ),
@@ -44,9 +60,9 @@ class _ItemView extends State<ItemView> {
         onPressed: () {
           Navigator.pushNamed(context, '/item/add');
         },
-        child: Icon(Icons.add),
         backgroundColor: CHColor.main500,
         foregroundColor: Colors.white,
+        child: const Icon(Icons.add),
       ),
     );
   }
