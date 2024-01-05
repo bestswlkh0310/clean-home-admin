@@ -1,18 +1,28 @@
-enum ChTextType {
+import 'dart:ui';
+
+enum CHTextType {
   title,
+  subtitle,
   body,
   label
 }
 
-extension ChTextTypeExtension on ChTextType {
-  double get textSize {
-    switch (this) {
-      case ChTextType.title:
-        return 20;
-      case ChTextType.body:
-        return 16;
-      case ChTextType.label:
-        return 12;
-    }
+extension TextStyleExtension on CHTextType {
+  double get fontSize {
+    return switch (this) {
+      CHTextType.title => 24,
+      CHTextType.subtitle => 20,
+      CHTextType.body => 16,
+      CHTextType.label => 12
+    };
+  }
+
+  FontWeight get fontWeight {
+    return switch (this) {
+      CHTextType.title => FontWeight.bold,
+      CHTextType.subtitle => FontWeight.bold,
+      CHTextType.body => FontWeight.normal,
+      CHTextType.label => FontWeight.normal,
+    };
   }
 }

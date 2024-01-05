@@ -1,3 +1,5 @@
+import 'package:cleanhome/ui/component/text/ch_text.dart';
+import 'package:cleanhome/ui/component/text/ch_text_type.dart';
 import 'package:cleanhome/ui/component/theme/color.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +27,7 @@ class _HomeButton extends State<HomeButton> {
           widget.callback();
         },
         child: Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: Container(
               alignment: Alignment.bottomCenter,
               height: 240,
@@ -34,12 +36,12 @@ class _HomeButton extends State<HomeButton> {
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
               ),
               child: Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(widget.text, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                      Icon(Icons.arrow_forward_ios_rounded, size: 20)
+                      CHText(text: widget.text, textType: CHTextType.subtitle),
+                      const Icon(Icons.arrow_forward_ios_rounded, size: 20)
                     ],
                   )
               )

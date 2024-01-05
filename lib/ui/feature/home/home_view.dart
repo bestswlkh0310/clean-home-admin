@@ -1,3 +1,5 @@
+import 'package:cleanhome/ui/component/text/ch_text.dart';
+import 'package:cleanhome/ui/component/text/ch_text_type.dart';
 import 'package:cleanhome/ui/feature/home/component/home_button.dart';
 import 'package:flutter/material.dart';
 
@@ -26,10 +28,10 @@ class _HomeView extends State<HomeView> {
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(widget.title, style: const TextStyle(fontWeight: FontWeight.bold)),
+            CHText(text: widget.title, textType: CHTextType.title),
             Padding(
               padding: const EdgeInsets.all(4),
-              child: Text(widget.subTitle, style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 16)),
+              child: CHText(text: widget.subTitle, textType: CHTextType.body),
             )
           ],
         ),
